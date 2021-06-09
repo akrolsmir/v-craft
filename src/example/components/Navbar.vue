@@ -6,53 +6,33 @@
       <a href="./docs"><i class="el-icon-collection" /> Documentation</a>
       <a href="#" @click.prevent="toggleImportDialog">Import</a>
       <a href="#" @click.prevent="toggleExportDialog">Export</a>
-      <el-switch
-        :value="enabled"
-        @input="updateState"
-        active-color="#13ce66"
-        inactive-color="gray">
+      <el-switch :value="enabled" @input="updateState" active-color="#13ce66" inactive-color="gray">
       </el-switch>
     </div>
 
-    <el-dialog
-      title="Export"
-      :visible.sync="showExportDialog"
-      :modal="false"
-      width="30%"
-    >
+    <el-dialog title="Export" v-model:visible="showExportDialog" :modal="false" width="30%">
       <div v-if="showExportDialog" class="disable-select">
-        <textarea
-          ref="exportTextarea"
-          :rows="8"
-          :value="editor.export()"
-        />
+        <textarea ref="exportTextarea" :rows="8" :value="editor.export()" />
       </div>
-      <span slot="footer" class="dialog-footer">
+      <template v-slot:footer class="dialog-footer">
         <el-button size="medium" @click="toggleExportDialog">Close</el-button>
         <el-button size="medium" type="primary" @click="copyExport">Copy</el-button>
-      </span>
+      </template>
     </el-dialog>
 
-    <el-dialog
-      title="Import"
-      :visible.sync="showImportDialog"
-      :modal="false"
-      width="30%"
-    >
+    <el-dialog title="Import" v-model:visible="showImportDialog" :modal="false" width="30%">
       <textarea :rows="8" v-model="importData" />
-      <span slot="footer" class="dialog-footer">
+      <template v-slot:footer class="dialog-footer">
         <el-button size="medium" @click="toggleImportDialog">Close</el-button>
         <el-button size="medium" type="primary" @click="doImport">Import</el-button>
-      </span>
+      </template>
     </el-dialog>
   </nav>
 </template>
 
 <script>
 export default {
-  inject: [
-    'editor',
-  ],
+  inject: ['editor'],
   data() {
     return {
       showExportDialog: false,

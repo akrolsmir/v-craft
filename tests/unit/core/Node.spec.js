@@ -51,7 +51,6 @@ describe('setParent', () => {
     expect(() => node.setParent(parent)).toThrow();
   });
 
-
   it('calls makeOrphan() before sets parent node', () => {
     const parent = createNode('parent');
     const node = createNode('node');

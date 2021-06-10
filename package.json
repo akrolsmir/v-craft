@@ -31,7 +31,7 @@
     "@vue/test-utils": "^2.0.0-alpha.1",
     "@vuepress/plugin-google-analytics": "^1.4.0",
     "babel-eslint": "^10.0.3",
-    "element-ui": "^2.13.0",
+    "element-plus": "^1.0.2-beta.46",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-vue": "^7.0.0-alpha.0",
